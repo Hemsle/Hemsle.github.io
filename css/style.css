@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+main {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    max-width: 300px;
+    overflow: hidden;
+    margin: auto;
+}
+
+#lcd {
+    width: 100%;
+    text-align: right;
+    height: 3.5rem;
+    background-color: black;
+    padding: 10px;
+    font-size: 40px;
+    color: white;
+
+}
+
+#keyBoard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    padding: 10px;
+}
+
+button {
+    height: 60px;
+    border-radius: 5px;
+    font-size: 40px;
+    color: black;
+    background-color: rgb(224, 224, 224);
+    cursor: pointer;
+}
+
+#add, #sub, #mul, #div, #comma, #enter, #clear{
+    color: rgb(72, 209, 255);
+}
+
+#clear{ 
+    width: 100%;
+}
+
+button:hover{
+    background-color: rgb(198, 198, 198);
+}
