@@ -10,6 +10,7 @@ main {
     max-width: 375px;
     overflow: hidden;
     margin: auto;
+    margin-top: 20px;
 }
 
 @font-face {
