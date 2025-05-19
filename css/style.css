@@ -1,26 +1,40 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 main {
     font-family: Arial, sans-serif;
     background-color: black;
-    max-width: 300px;
+    max-width: 375px;
     overflow: hidden;
     margin: auto;
 }
 
-#lcd {
-    width: 100%;
-    text-align: right;
-    height: 3.5rem;
-    background-color: black;
-    padding: 10px;
-    font-size: 40px;
-    color: white;
-
+@font-face {
+    font-family: lcd;
+    src: url(../font/SUBWT___.ttf);
 }
+
+html {
+    font-size: 62.5%;
+    background-color: black;
+}
+
+main input {
+    width: 100%;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: green;
+    background-color: black;
+    text-align: right;
+    padding: 10px 4px 10px 4px;
+    font-family: lcd;
+    border: 1px solid yellow;
+    border-radius: 4px;
+}
+
 
 #keyBoard {
     display: grid;
@@ -30,7 +44,7 @@ main {
 }
 
 button {
-    height: 60px;
+    height: 80px;
     border-radius: 5px;
     font-size: 40px;
     color: black;
@@ -38,14 +52,20 @@ button {
     cursor: pointer;
 }
 
-#add, #sub, #mul, #div, #comma, #enter, #clear{
+#add,
+#sub,
+#mul,
+#div,
+#comma,
+#enter,
+#clear {
     color: rgb(72, 209, 255);
 }
 
-#clear{ 
+#clear {
     width: 100%;
 }
 
-button:hover{
+button:hover {
     background-color: rgb(198, 198, 198);
 }
