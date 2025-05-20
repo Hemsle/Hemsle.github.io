@@ -10,6 +10,7 @@ let lcd = null; // displayen
 let memory = 0; // Lagrat/gamlat värdet från display
 let arithmetic = null; // Vilken beräkning som skall göras +,-, x eller /
 let isComma = false;
+let isResult = false;   
 
 function init() {
     lcd = document.getElementById('lcd');
@@ -23,7 +24,7 @@ function init() {
 function buttonClick(e) {
     let btn = e.target.id; //id för den tangent som tryckte ner
 
-    if(lcd.value === 'undefined' || lcd.value === 'NaN'){
+    if(lcd.value === 'undefined'){
         clearLCD();
     }
     // kollar om siffertangent är nedtryckt
@@ -39,7 +40,9 @@ function buttonClick(e) {
                 break;
             case 'sub':
                 if(lcd.value === ''){
+                    isResult = false;
                     lcd.value += '-'
+                    console.log('-')
                 } else {
                     setOperator('-');
                 }
@@ -67,8 +70,12 @@ function buttonClick(e) {
  *  Lägger till siffra på display.
  */
 function addDigit(digit) {
+    if(isResult) {
+        clearLCD();
+        isResult = false; 
+    }
     lcd.value += digit;
-    console.log(digit);
+    console.log(lcd.value);
 }
 
 /**
@@ -87,7 +94,9 @@ function addComma() {
  */
 function setOperator(operator) {
     arithmetic = operator;
+    if(lcd.value != ''){
     memory = parseFloat(lcd.value);
+    }
     console.log(memory + ' ' + arithmetic);
     clearLCD();
 }
@@ -122,9 +131,12 @@ function calculate() {
 
     arithmetic = null;
 
-    console.log(result)
-
     lcd.value = result;
+    isResult = true; 
+
+    console.log(result + " " + isResult)
+    
+    
 
 }
 
@@ -136,7 +148,7 @@ function clearLCD() {
 
 /** Rensar allt, reset */
 function memClear() {
-    memory = 0;
+    memory = '';
     arithmetic = null;
     clearLCD();
 }
