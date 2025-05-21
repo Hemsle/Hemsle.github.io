@@ -1,10 +1,4 @@
 
-/**
- * Se detta som en grund att utgå ifrån.
- * Det är helt fritt att ändra och ta bort kod om ni
- * önskar lösa problemen med andra metoder.
- */
-
 let lcd = null; // displayen
 
 let memory = 0; // Lagrat/gamlat värdet från display
@@ -38,7 +32,7 @@ function buttonClick(e) {
             case 'add':
                 setOperator('+');
                 break;
-            case 'sub'://lagrar att det finns ett resultat
+            case 'sub':
                 if (lcd.value === '') {
                     isResult = false;
                     lcd.value += '-'
@@ -70,7 +64,7 @@ function buttonClick(e) {
  *  Lägger till siffra på display.
  */
 function addDigit(digit) {
-    /*
+    /**
     * när man vill påbörja en ny uträkning rensas displayen
     */
     if (isResult) {
@@ -97,7 +91,7 @@ function addComma() {
  */
 function setOperator(operator) {
     arithmetic = operator;
-    if (lcd.value != '') {
+    if ((lcd.value != '') && (lcd.value != '-')) {
         memory = parseFloat(lcd.value);
     }
     console.log(memory + ' ' + arithmetic);
@@ -119,7 +113,7 @@ function calculate() {
             result = memory - parseFloat(lcd.value);
             break;
         case '/':
-            if (lcd.value === '0') {//hindrar division med noll att bli infinity
+            if (lcd.value === '0') {/** hindrar division med noll att bli infinity */
                 lcd.value = 'undefined';
             } else {
                 result = memory / parseFloat(lcd.value);
@@ -136,7 +130,7 @@ function calculate() {
     arithmetic = null;
     if (lcd.value === '') {
         lcd.value = memory;
-        isResult = true;//lagrar att det finns ett resultat
+        isResult = true;/** lagrar att det finns ett resultat */
         console.log(memory + " " + isResult)
     } else {
         lcd.value = result;
