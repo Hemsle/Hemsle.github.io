@@ -49,7 +49,7 @@ function buttonClick(e) {
                 break;
             case 'comma':
                 addComma();
-                break; f
+                break; 
             case 'enter':
                 calculate();
                 break;
@@ -91,7 +91,7 @@ function addComma() {
  */
 function setOperator(operator) {
     arithmetic = operator;
-    if ((lcd.value != '') && (lcd.value != '-')) {
+    if (!isNaN(parseFloat(lcd.value))) {
         memory = parseFloat(lcd.value);
     }
     console.log(memory + ' ' + arithmetic);
@@ -147,7 +147,7 @@ function clearLCD() {
 
 /** Rensar allt, reset */
 function memClear() {
-    memory = '';
+    memory = 0;
     arithmetic = null;
     clearLCD();
 }
